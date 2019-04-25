@@ -1,7 +1,7 @@
 //Made for educational purposes only
 //I advice against using this for anything illegal
 //Any usage I have suggested must not be taken seriously
-//Can be destructive is misused
+//Can be destructive if misused
 //I have found most of the tools online so I do not claim ownership for any of them
 //I have just compiled them in one place
 //~P3RS3S
