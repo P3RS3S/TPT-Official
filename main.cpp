@@ -54,7 +54,7 @@ int FlashingLights()
     cout <<"#Creates a .vbs                                            #"<<endl;
     cout <<"#Makes the lights on your keyboard go crazy                #"<<endl;
     cout <<"#Also rapidly shifts Caps on and off                       #"<<endl;
-    cout <<"#Great for torllink your roommte or anyone really          #"<<endl;
+    cout <<"#Great for trolling your roommte or anyone really          #"<<endl;
     cout <<"#Can be stopped by killing wscript.exe in the Task Manager #"<<endl;
     cout <<"############################################################"<<endl;
     cout <<""<<endl;
