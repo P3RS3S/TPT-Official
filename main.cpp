@@ -15,6 +15,9 @@ int FakeUpdate();
 int BSOD();
 int ForkBomb();
 int Exit();
+int Talk();
+int MadCD();
+int Matrix();
 
 int main()
 {
@@ -23,10 +26,10 @@ int main()
     cout <<"# The Prankster's Toolkit v1.0 #"<<endl;
     cout <<"################################"<<endl;
     cout <<""<<endl;
-    cout <<"1)Flashing Lights         0)Exit "<<endl;
-    cout <<"2)Blue Screen Of Death           "<<endl;
-    cout <<"3)Fork Bomb                      "<<endl;
-    cout <<"4)Fake Windows 10 Update         "<<endl;
+    cout <<"1)Flashing Lights         5)Talk to them "<<endl;
+    cout <<"2)Blue Screen Of Death    6)Mad CD            "<<endl;
+    cout <<"3)Fork Bomb               7)Matrix       "<<endl;
+    cout <<"4)Fake Windows 10 Update  0)Exit       "<<endl;
     cout <<""<<endl;
     cin>>pick;
     switch(pick)
@@ -36,6 +39,9 @@ int main()
         case 2:BSOD();break;
         case 3:ForkBomb();break;
         case 4:FakeUpdate();break;
+        case 5:Talk();break;
+        case 6:MadCD();break;
+        case 7:Matrix();break;
         default:cout << string(50, '\n');main();break;
     }
     return 0;
@@ -50,12 +56,12 @@ int FlashingLights()
 {
     char rand;
     cout << string(50, '\n')<<endl;
-    cout <<"############################################################"<<endl;
-    cout <<"#Creates a .vbs                                            #"<<endl;
-    cout <<"#Makes the lights on your keyboard go crazy                #"<<endl;
-    cout <<"#Also rapidly shifts Caps on and off                       #"<<endl;
-    cout <<"#Great for trolling your roommte or anyone really          #"<<endl;
-    cout <<"#Can be stopped by killing wscript.exe in the Task Manager #"<<endl;
+    cout <<"###################################################"<<endl;
+    cout <<"#Creates a .vbs                                   #"<<endl;
+    cout <<"#Makes the lights on your keyboard go crazy       #"<<endl;
+    cout <<"#Also rapidly shifts Caps on and off              #"<<endl;
+    cout <<"#Great for trolling your roommte or anyone really #"<<endl;
+    cout <<"#Can be stopped by killing wscript.exe            #"<<endl;
     cout <<"############################################################"<<endl;
     cout <<""<<endl;
     cout <<"Once you enter anything below, the file will be created in the folder which contains TPT.exe" <<endl;
@@ -69,6 +75,95 @@ int FlashingLights()
     file << "wshshell.sendkeys \"{NUMLOCK}\"" <<endl;
     file << "wshshell.sendkeys \"{SCROLLLOCK}\"" <<endl;
     file << "loop" <<endl;
+    file.close();
+    cout <<string(50, '\n');
+    main();
+}
+
+int Matrix()
+{
+    int rand;
+    cout << string(50, '\n')<<endl;
+    cout <<"##################################################################"<<endl;
+    cout <<"#Creates a .bat                                                  #"<<endl;
+    cout <<"#To make is fullscreen just press Alt + Enter once open the file #"<<endl;
+    cout <<"##################################################################"<<endl;
+    cout <<""<<endl;
+    cout <<"Once you enter anything below, the file will be created in the folder which contains TPT.exe" <<endl;
+    cin >>rand;
+    ofstream file;
+    file.open("TPT_Matrix.bat");
+    file << "mode 1000" <<endl;
+    file << "@echo off" <<endl;
+    file << "color 02" <<endl;
+    file << ":start" <<endl;
+    file << "echo %random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%" <<endl;
+    file << "goto start" <<endl;
+    file.close();
+    cout <<string(50, '\n');
+    main();
+
+
+}
+
+int MadCD()
+{
+    int r;
+    cout << string(50, '\n')<<endl;
+    cout <<"##################################################"<<endl;
+    cout <<"#Creates a .vbs                                  #"<<endl;
+    cout <<"#Will make the cd drive of the computer go crazy #"<<endl;
+    cout <<"#Can be stopped by killing wscript.exe           #"<<endl;
+    cout <<"##################################################"<<endl;
+    cout <<""<<endl;
+    cout <<"Once you enter anything below, the file will be created in the folder which contains TPT.exe" <<endl;
+    cin >>r;
+    ofstream file;
+    file.open("TPT_MadCD.vbs");
+    file << "Set oWMP = CreateObject(\"WMPlayer.OCX.7\") " <<endl;
+    file << "Set colCDROMs = oWMP.cdromCollection" <<endl;
+    file << "do" <<endl;
+    file << "if colCDROMs.Count >= 1 then" <<endl;
+    file << "For i = 0 to colCDROMs.Count - 1" <<endl;
+    file << "colCDROMs.Item(i).Eject" <<endl;
+    file << "Next" <<endl;
+    file << "For i = 0 to colCDROMs.Count - 1" <<endl;
+    file << "colCDROMs.Item(i).Eject" <<endl;
+    file << "Next" <<endl;
+    file << "End If" <<endl;
+    file << "wscript.sleep 3000 " <<endl;
+    file << "loop" <<endl;
+    file.close();
+    cout <<string(50, '\n');
+    main();
+}
+
+int Talk()
+{
+    string text;
+    int dil;
+    cout << string(50, '\n')<<endl;
+    cout <<"#########################################"<<endl;
+    cout <<"#Creates a .vbs                         #"<<endl;
+    cout <<"#Will read out the message you enter    #"<<endl;
+    cout <<"#Delay before reading can be customized #"<<endl;
+    cout <<"#Tested and works on Windows 10         #"<<endl;
+    cout <<"#########################################"<<endl;
+    cout <<""<<endl;
+    cout <<"The file will be created in the folder which contains TPT.exe" <<endl;
+    cout <<"Enter the dealy in secconds:";
+    cin >>dil;
+    dil = dil*1000;
+    cout <<"Enter your message:"<<endl;
+    cin.get();
+    getline(cin, text);
+    ofstream file;
+    file.open("TPT_Talk.vbs");
+    file << "Dim message, sapi" <<endl;
+    file << "message=(\"" << text <<"\")" <<endl;
+    file << "wscript.sleep "<<dil <<endl;
+    file << "Set sapi=CreateObject(\"sapi.spvoice\")" <<endl;
+    file << "sapi.Speak message" <<endl;
     file.close();
     cout <<string(50, '\n');
     main();
@@ -88,7 +183,7 @@ int BSOD()
     cout <<"Once you enter anything below, the file will be created in the folder which contains TPT.exe" <<endl;
     cin >>rand;
     ofstream file;
-file.open("TPT_BSOD.bat");
+    file.open("TPT_BSOD.bat");
     file << "@echo off" <<endl;
     file << "echo ^<html^>^<head^>^<title^>BSOD^" <<endl;
     file << "</title^> > bsod.hta" <<endl;
@@ -148,7 +243,7 @@ int ForkBomb()
     cout <<"#Creates a .bat                                  #"<<endl;
     cout <<"#Will crash the system upon launch               #"<<endl;
     cout <<"#Crash time depends on the system                #"<<endl;
-    cout <<"#A restart is required to \"uncrash\" the system   #"<<endl;
+    cout <<"#A restart is required to \"uncrash\" the system #"<<endl;
     cout <<"##################################################"<<endl;
     cout <<""<<endl;
     cout <<"Once you enter anything below, the file will be created in the folder which contains TPT.exe"<<endl;
